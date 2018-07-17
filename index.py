@@ -16,6 +16,8 @@ url1='https://vtopbeta.vit.ac.in/vtop/'
 headers = {
     'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36',
 }
+import warnings
+warnings.filterwarnings('ignore', 'Unverified HTTPS request')
 reg_no=input("Reg_no: ")
 password=input("Password: ")
 semester="VL2018191"

@@ -2,6 +2,8 @@ import index
 import re
 import json
 from bs4 import BeautifulSoup
+import warnings
+warnings.filterwarnings('ignore', 'Unverified HTTPS request')
 if(index.error==""):
     url="https://vtopbeta.vit.ac.in/vtop/examinations/doSearchExamScheduleForStudent"
     data={'semesterSubId':index.semester}
