@@ -1,5 +1,5 @@
 # VIT-DATA-Scraper
-Scrapes all user information from vtopbeta
+Scrapes all user information from vtopbeta (https://vtopbeta.vit.ac.in/vtop/)
 
 Simply download all the files and run the required python files as per your interest.
 
