@@ -42,16 +42,17 @@ if(index.error==""):
                     assignment_detail['title']=td1[1].text
                     assignment_detail['max']=td1[2].text
                     assignment_detail['weightage']=td1[3].text
-                    assignment_detail['due_date']=td1[4].find_all('span')[0].text
-                    chk_not_upload=td1[5].find_all('h5')
-                    if(len(chk_not_upload)!=0):
-                        assignment_detail['status']=chk_not_upload[0].text
-                    chk_blank=td1[5].find_all('span')
-                    if(len(chk_not_upload)==0 and len(chk_blank)==0):
-                        assignment_detail['status']=""
-                    if(len(chk_blank)>1):
-                        span=chk_blank[1].find_all('span')
-                        assignment_detail['status']=span[0].text+" "+span[1].text
+                    assignment_detail['due_date'] = td1[4].find_all('span')[0].text
+                    chk_not_upload = td1[5].find_all('span')
+                    if len(chk_not_upload) != 0:
+                        if len(chk_not_upload[0].text) == 1:
+                            s = chk_not_upload[1].text
+                            s = re.sub('\s+', ' ', s)
+                        else:
+                            s = 'Not Uploaded'
+                    else:
+                        s = '-'
+                    assignment_detail['status'] = s
                     details.append(assignment_detail)
             assignment['details']=details
             assignment1.append(assignment)
@@ -60,8 +61,3 @@ if(index.error==""):
         final_assignment=json.loads(final_assignment)
     with open('assignments.json','w') as outfile:
         json.dump(final_assignment,outfile)
-
-    
-                
-    
-    
