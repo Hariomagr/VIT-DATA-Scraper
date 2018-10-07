@@ -44,7 +44,7 @@ if(index.error==""):
                     assignment_detail['weightage']=td1[3].text
                     assignment_detail['due_date'] = td1[4].find_all('span')[0].text
                     chk_not_upload = td1[5].find_all('span')
-                    if len(chk_not_upload) != 0:
+                    if len(chk_not_upload) == 2:
                         if len(chk_not_upload[0].text) == 1:
                             s = chk_not_upload[1].text
                             s = re.sub('\s+', ' ', s)
